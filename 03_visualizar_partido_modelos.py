@@ -159,8 +159,8 @@ def graficar_contexto_partido(pred_partido):
     ax.axis("off")
 
     tabla_plot = ax.table(
-        cellText=tabla_contexto.values,
-        colLabels=tabla_contexto.columns,
+        cellText=tabla_contexto.astype(str).values.tolist(),
+        colLabels=tabla_contexto.columns.tolist(),
         cellLoc="center",
         loc="center"
     )
@@ -364,8 +364,8 @@ def graficar_top10_modelo(tabla_top10, home_team, away_team, modelo, mejor_model
     ax.axis("off")
 
     tabla_plot = ax.table(
-        cellText=tabla_visual.values,
-        colLabels=tabla_visual.columns,
+        cellText=tabla_visual.astype(str).values.tolist(),
+        colLabels=tabla_visual.columns.tolist(),
         cellLoc="center",
         loc="center"
     )

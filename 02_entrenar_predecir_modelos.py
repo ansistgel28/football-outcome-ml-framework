@@ -143,7 +143,7 @@ def clase_por_probabilidades(prob_home, prob_draw, prob_away):
         "A": prob_away
     }
 
-    return max(probabilidades, key=probabilidades.get)
+    return max(probabilidades, key=lambda clase: probabilidades[clase])
 
 
 def resultado_real(home_score, away_score):
@@ -448,7 +448,7 @@ def predecir_fixture(modelo_home, modelo_away):
     predicciones = []
     top10_total = []
 
-    for idx, fila in fixtures.iterrows():
+    for match_id_fallback, (_, fila) in enumerate(fixtures.iterrows(), start=1):
 
         X_nuevo = fila[VARIABLES].to_frame().T
 
@@ -471,7 +471,7 @@ def predecir_fixture(modelo_home, modelo_away):
         if "match_no" in fixtures.columns and not pd.isna(fila["match_no"]):
             match_id = int(fila["match_no"])
         else:
-            match_id = idx + 1
+            match_id = match_id_fallback
 
         predicciones.append({
             "match_id": match_id,
@@ -597,7 +597,7 @@ def predecir_fixture_todos_modelos(modelos_home, modelos_away, mejor_modelo):
         modelo_home = modelos_home[nombre_modelo]
         modelo_away = modelos_away[nombre_modelo]
 
-        for idx, fila in fixtures.iterrows():
+        for match_id_fallback, (_, fila) in enumerate(fixtures.iterrows(), start=1):
 
             X_nuevo = fila[VARIABLES].to_frame().T
             lambda_home = modelo_home.predict(X_nuevo)[0]
@@ -634,7 +634,7 @@ def predecir_fixture_todos_modelos(modelos_home, modelos_away, mejor_modelo):
             if "match_no" in fixtures.columns and not pd.isna(fila["match_no"]):
                 match_id = int(fila["match_no"])
             else:
-                match_id = idx + 1
+                match_id = match_id_fallback
 
             predicciones_total.append({
                 "match_id": match_id,

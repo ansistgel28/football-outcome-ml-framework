@@ -110,10 +110,8 @@ partidos_mundial_2026 = [
     ("2026-06-26", "Senegal", "Iraq", 5, 0),
     ("2026-06-26", "Uruguay", "Spain", 0, 1),
     ("2026-06-26", "Cape Verde", "Saudi Arabia", 0, 0),
-    
-    # Todavía programados / pendientes:
-    # ("2026-06-26", "New Zealand", "Belgium", 0, 0),
-    # ("2026-06-26", "Egypt", "Iran", 0, 0), 
+    ("2026-06-26", "New Zealand", "Belgium", 1, 5),
+    ("2026-06-26", "Egypt", "Iran", 1, 1), 
 ]
 
 
