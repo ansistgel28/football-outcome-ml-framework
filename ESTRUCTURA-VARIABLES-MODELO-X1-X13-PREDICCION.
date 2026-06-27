@@ -1,0 +1,152 @@
+============================================================
+            MODELO MATEMÁTICO UTILIZADO
+============================================================
+
+En este proyecto se trabaja con dos variables objetivo:
+
+y_home = goles anotados por el equipo local
+y_away = goles anotados por el equipo visitante
+
+Por eso, cada algoritmo se entrena dos veces:
+
+modelo_home → predice y_home
+modelo_away → predice y_away
+
+------------------------------------------------------------
+VARIABLES PREDICTORAS
+------------------------------------------------------------
+
+| Variable matemática | Variable en el código | Descripción |
+|--------------------|----------------------|-------------|
+| X1  | home_gf12          | Goles a favor recientes del equipo local |
+| X2  | home_ga12          | Goles en contra recientes del equipo local |
+| X3  | home_pts12         | Puntos recientes del equipo local |
+| X4  | home_prev_matches  | Partidos recientes del local |
+| X5  | away_gf12          | Goles a favor del visitante |
+| X6  | away_ga12          | Goles en contra del visitante |
+| X7  | away_pts12         | Puntos recientes del visitante |
+| X8  | away_prev_matches  | Partidos recientes del visitante |
+| X9  | diff_fifa          | Diferencia ranking FIFA |
+| X10 | diff_elo           | Diferencia rating Elo |
+| X11 | h2h                | Historial directo |
+| X12 | neutral            | Campo neutral |
+| X13 | home_advantage     | Ventaja de localía |
+
+Vector de entrada:
+
+X = (X1, X2, X3, ..., X13)
+
+============================================================
+1. REGRESIÓN LINEAL
+============================================================
+
+ŷ = β0 + β1X1 + β2X2 + ... + β13X13
+
+ŷ_home = β0_home + Σ βi_home Xi
+ŷ_away = β0_away + Σ βi_away Xi
+
+Interpretación:
+- β positivo → aumenta goles
+- β negativo → reduce goles
+- β cercano a 0 → poca influencia
+
+============================================================
+2. REGRESIÓN RIDGE
+============================================================
+
+ŷ = β0 + β1X1 + ... + β13X13
+
+min Σ(yi - ŷi)^2 + αΣβj²
+
+- Reduce sobreajuste
+- Controla coeficientes grandes
+- Maneja variables correlacionadas
+
+============================================================
+3. RANDOM FOREST
+============================================================
+
+ŷ = (1/B) Σ Tb(X)
+
+ŷ = (T1 + T2 + ... + TB) / B
+
+- Promedio de árboles
+- Captura relaciones no lineales
+
+============================================================
+4. GRADIENT BOOSTING
+============================================================
+
+Fm(X) = Fm-1(X) + ν hm(X)
+
+rim = yi - Fm-1(Xi)
+
+- Corrige errores progresivamente
+- Modelo aditivo secuencial
+
+============================================================
+5. POISSON REGRESSOR
+============================================================
+
+Y ~ Poisson(λ)
+
+log(λ) = β0 + β1X1 + ... + β13X13
+
+λ = exp(β0 + Σ βiXi)
+
+λ_home = exp(...)
+λ_away = exp(...)
+
+============================================================
+MATRIZ DE PROBABILIDADES
+============================================================
+
+P(Home=a) = (e^-λ_home * λ_home^a) / a!
+P(Away=b) = (e^-λ_away * λ_away^b) / b!
+
+P(a,b) = P(Home=a) * P(Away=b)
+
+Probabilidades:
+- Victoria local → a > b
+- Empate → a = b
+- Victoria visitante → a < b
+
+============================================================
+AJUSTE DIXON-COLES
+============================================================
+
+P_ajustada = P_Poisson * τ(a,b,λ_home,λ_away,ρ)
+
+Corrige:
+- 0-0
+- 1-0
+- 0-1
+- 1-1
+
+============================================================
+AJUSTE CONTEXTO COMPETITIVO
+============================================================
+
+λ_home_final = λ_home_base * factor_contexto_home
+λ_away_final = λ_away_base * factor_contexto_away
+
+factor_contexto:
+- 1.10 → mayor ataque
+- 1.00 → neutro
+- 0.90 → menor ataque
+
+============================================================
+FLUJO DEL MODELO
+============================================================
+
+1. Construcción del vector X (13 variables)
+2. Predicción de goles (home/away)
+3. λ_base
+4. Ajuste contextual
+5. λ_final
+6. Poisson matrix
+7. Dixon-Coles
+8. Probabilidades H/D/A
+9. Top marcadores
+10. Simulación de tabla
+============================================================
