@@ -15,9 +15,16 @@
 Este proyecto construye un sistema de predicción de resultados para el Mundial 2026 basado en múltiples modelos de regresión.  
 El sistema estima goles esperados por partido, evalúa distintos modelos predictivos y posteriormente ajusta las predicciones mediante un componente de contexto competitivo asociado a la fase de grupos.
 
-El objetivo es generar probabilidades robustas de resultado (victoria local, empate, victoria visitante) y distribución de marcadores más probables, integrando información histórica, ranking FIFA, Elo y dinámica competitiva.
+El objetivo es generar:
+
+- probabilidades de resultado (victoria local, empate, victoria visitante)  
+- estimación de marcadores más probables  
+- simulación de clasificación a la siguiente fase del torneo  
+
+El modelo integra información histórica, ranking FIFA, Elo y dinámica competitiva.
 
 ---
+
 ## 🏛️ Arquitectura del Sistema
 
 Este sistema sigue una arquitectura modular de machine learning con múltiples capas de procesamiento.
@@ -56,23 +63,17 @@ graph TB
     F --> G[📊 Visualization Layer]
     G --> G1[03_visualizar_partido_modelos.py]
 
+    %% CLASSIFICATION SIMULATION
+    G --> H[🏆 Classification Engine]
+    H --> H1[06_predecir_clasificados.py]
+    H --> H2[tabla_grupos_predicha.csv]
+    H --> H3[clasificados_16avos.csv]
+
     %% OUTPUTS
-    G --> H[📦 Outputs]
-    H --> H1[top10_marcadores.csv]
-    H --> H2[predicciones_fixture.csv]
+    H --> I[📦 Outputs]
+    I --> I1[top10_marcadores.csv]
+    I --> I2[predicciones_fixture.csv]
 
-```
-# 🧠 SYSTEM OVERVIEW
-```
-El modelo genera:
-
-- Competencia entre modelos  
-- Mejor modelo según MAE promedio  
-- Predicción de goles esperados  
-- Probabilidades de victoria local, empate y visitante  
-- Top 10 marcadores más probables  
-- Ajuste por contexto competitivo  
-- Gráficos y análisis por partido  
 ```
 ---
 
@@ -93,6 +94,10 @@ SELECCIÓN DEL MEJOR MODELO
 AJUSTE POR CONTEXTO COMPETITIVO
 ↓
 POISSON + DIXON-COLES → PROBABILIDADES FINALES
+↓
+SIMULACIÓN DE CLASIFICACIÓN (FASE DE GRUPOS)
+↓
+DETERMINACIÓN DE CLASIFICADOS A SIGUIENTE FASE
 ```
 ---
 
@@ -120,7 +125,12 @@ modelo regresion/
 │   ├── predicciones_todos_modelos.csv
 │   ├── top10_marcadores.csv
 │   ├── top10_todos_modelos.csv
-│   └── graficos generados
+│   ├── tabla_grupos_predicha.csv
+│   ├── clasificados_grupos.csv
+│   ├── mejores_terceros.csv
+│   ├── clasificados_16avos.csv
+│   ├── cruces_16avos_predichos.csv
+│   └── panel_tablas_grupos.png
 │
 ├── 00_actualizar_results_mundial.py
 ├── 01_construir_data_modelo.py
@@ -128,6 +138,7 @@ modelo regresion/
 ├── 03_visualizar_partido_modelos.py
 ├── 04_mostrar_modelo_final.py
 ├── 05_crear_contexto_grupos.py
+├── 06_predecir_clasificados.py
 ├── requirements.txt
 └── README.txt
 ```
@@ -136,14 +147,12 @@ modelo regresion/
 # ⚙️ REQUIREMENTS
 ```
 pip install -r requirements.txt
-
-Librerías:
-- numpy
-- pandas
-- scipy
-- scikit-learn
-- matplotlib
-- joblib
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+joblib
 ```
 
 ---
@@ -162,6 +171,8 @@ Librerías:
 6) python 03_visualizar_partido_modelos.py (MATCH_ID = 60)
 
 7) python 04_mostrar_modelo_final.py
+
+8) python 06_predecir_clasificados.py
 ```
 ---
 
@@ -180,8 +191,8 @@ Librerías:
 - home_gf12
 - home_ga12
 - home_pts12
-- home_prev_matches
-- away_gf12
+- ome_prev_matches
+- way_gf12
 - away_ga12
 - away_pts12
 - away_prev_matches
@@ -200,17 +211,19 @@ lambda_away_final = lambda_away_base * factor_contexto_away
 
 - 1.15 = must win  
 - 0.90 = rotation  
-- 1.00 = neutral  
+- 1.00 = neutral   
 ```
 ---
 
 # 📦 OUTPUTS
 ```
-- competencia_modelos.csv
-- mejor_modelo.txt
-- predicciones_todos_modelos.csv
-- predicciones_fixture.csv
-- top10_marcadores.csv
+-competencia_modelos.csv
+-mejor_modelo.txt
+-predicciones_fixture.csv
+-top10_marcadores.csv
+-tabla_grupos_predicha.csv
+-clasificados_16avos.csv
+-cruces_16avos_predichos.csv
 ```
 ---
 
