@@ -248,41 +248,100 @@ ranking, Elo, historial y contexto competitivo del grupo.
 ```
 # ⚽ Clasificados a dieciseisavos de final — Mundial 2026
 
-Estas son las **32 selecciones** que, según la predicción del modelo, avanzaron a los dieciseisavos de final.
+Estas son las **32 selecciones** que, según la predicción del modelo, avanzaron a los dieciseisavos de final. Los equipos están organizados por grupo y posición de clasificación.
 
-| N.º | Selección | Grupo | Clasificación |
-|:---:|---|:---:|---|
-| 1 | México | A | Primero |
-| 2 | Sudáfrica | A | Segundo |
-| 3 | Corea del Sur | A | Mejor tercero |
-| 4 | Suiza | B | Primero |
-| 5 | Canadá | B | Segundo |
-| 6 | Bosnia y Herzegovina | B | Mejor tercero |
-| 7 | Brasil | C | Primero |
-| 8 | Marruecos | C | Segundo |
-| 9 | Estados Unidos | D | Primero |
-| 10 | Australia | D | Segundo |
-| 11 | Turquía | D | Mejor tercero |
-| 12 | Alemania | E | Primero |
-| 13 | Costa de Marfil | E | Segundo |
-| 14 | Ecuador | E | Mejor tercero |
-| 15 | Países Bajos | F | Primero |
-| 16 | Japón | F | Segundo |
-| 17 | Suecia | F | Mejor tercero |
-| 18 | Egipto | G | Primero |
-| 19 | Bélgica | G | Segundo |
-| 20 | Irán | G | Mejor tercero |
-| 21 | España | H | Primero |
-| 22 | Cabo Verde | H | Segundo |
-| 23 | Francia | I | Primero |
-| 24 | Noruega | I | Segundo |
-| 25 | Senegal | I | Mejor tercero |
-| 26 | Argentina | J | Primero |
-| 27 | Austria | J | Segundo |
-| 28 | Colombia | K | Primero |
-| 29 | Portugal | K | Segundo |
-| 30 | Inglaterra | L | Primero |
-| 31 | Croacia | L | Segundo |
-| 32 | Ghana | L | Mejor tercero |
+## Grupo A
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | México |
+| 2.º | Sudáfrica |
+| Mejor tercero | Corea del Sur |
+
+## Grupo B
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Suiza |
+| 2.º | Canadá |
+| Mejor tercero | Bosnia y Herzegovina |
+
+## Grupo C
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Brasil |
+| 2.º | Marruecos |
+
+## Grupo D
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Estados Unidos |
+| 2.º | Australia |
+| Mejor tercero | Turquía |
+
+## Grupo E
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Alemania |
+| 2.º | Costa de Marfil |
+| Mejor tercero | Ecuador |
+
+## Grupo F
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Países Bajos |
+| 2.º | Japón |
+| Mejor tercero | Suecia |
+
+## Grupo G
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Egipto |
+| 2.º | Bélgica |
+| Mejor tercero | Irán |
+
+## Grupo H
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | España |
+| 2.º | Cabo Verde |
+
+## Grupo I
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Francia |
+| 2.º | Noruega |
+| Mejor tercero | Senegal |
+
+## Grupo J
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Argentina |
+| 2.º | Austria |
+
+## Grupo K
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Colombia |
+| 2.º | Portugal |
+
+## Grupo L
+
+| Posición | Selección |
+|:---:|---|
+| 1.º | Inglaterra |
+| 2.º | Croacia |
+| Mejor tercero | Ghana |
 
 > Fuente: `outputs/clasificados_16avos.csv`.
+
+<img width="5970" height="2367" alt="image" src="https://github.com/user-attachments/assets/48aa4ffa-27d7-4a53-a2d3-dc4aadc85367" />
