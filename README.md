@@ -364,7 +364,8 @@ Estas son las **32 selecciones** que, según la predicción del modelo, avanzaro
 | 15 | Argentina vs. Cape Verde | 3-2 | Argentina |
 | 16 | Colombia vs. Ghana | 1-0 | Colombia |
 
-<img width="1354" height="323" alt="image" src="https://github.com/user-attachments/assets/5f340536-9eb0-46a4-b3fe-483cf5ed8fe7" />
+<img width="4770" height="2634" alt="image" src="https://github.com/user-attachments/assets/a88cc700-3635-40f0-b664-53b7913af201" />
+
 
 # ⚠️ NOTE
 ```
