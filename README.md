@@ -16,7 +16,6 @@ Este proyecto fue desarrollado por el siguiente equipo:
 - 👤 **Integrante 2:** MARREROS CORTEGANA MIGUEL ANGEL 
 - 👤 **Integrante 3:** FERNANDEZ CAMPOS VALENTIN 
 - 👤 **Integrante 4:** SALON TRIGOSO FRANK
-- 👤 **Integrante 4:** TUESTA CHUQUIZUTA MARIA CARMEN
 
 ```
 ```
@@ -247,3 +246,43 @@ El modelo no garantiza el resultado real de los partidos.
 Su objetivo es estimar probabilidades usando información histórica, forma reciente, 
 ranking, Elo, historial y contexto competitivo del grupo.
 ```
+# ⚽ Clasificados a dieciseisavos de final — Mundial 2026
+
+Estas son las **32 selecciones** que, según la predicción del modelo, avanzaron a los dieciseisavos de final.
+
+| N.º | Selección | Grupo | Clasificación |
+|:---:|---|:---:|---|
+| 1 | México | A | Primero |
+| 2 | Sudáfrica | A | Segundo |
+| 3 | Corea del Sur | A | Mejor tercero |
+| 4 | Suiza | B | Primero |
+| 5 | Canadá | B | Segundo |
+| 6 | Bosnia y Herzegovina | B | Mejor tercero |
+| 7 | Brasil | C | Primero |
+| 8 | Marruecos | C | Segundo |
+| 9 | Estados Unidos | D | Primero |
+| 10 | Australia | D | Segundo |
+| 11 | Turquía | D | Mejor tercero |
+| 12 | Alemania | E | Primero |
+| 13 | Costa de Marfil | E | Segundo |
+| 14 | Ecuador | E | Mejor tercero |
+| 15 | Países Bajos | F | Primero |
+| 16 | Japón | F | Segundo |
+| 17 | Suecia | F | Mejor tercero |
+| 18 | Egipto | G | Primero |
+| 19 | Bélgica | G | Segundo |
+| 20 | Irán | G | Mejor tercero |
+| 21 | España | H | Primero |
+| 22 | Cabo Verde | H | Segundo |
+| 23 | Francia | I | Primero |
+| 24 | Noruega | I | Segundo |
+| 25 | Senegal | I | Mejor tercero |
+| 26 | Argentina | J | Primero |
+| 27 | Austria | J | Segundo |
+| 28 | Colombia | K | Primero |
+| 29 | Portugal | K | Segundo |
+| 30 | Inglaterra | L | Primero |
+| 31 | Croacia | L | Segundo |
+| 32 | Ghana | L | Mejor tercero |
+
+> Fuente: `outputs/clasificados_16avos.csv`.
